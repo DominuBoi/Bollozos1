@@ -1,0 +1,170 @@
+.header {
+    display: flex;
+    justify-content: center; /* centers the whole header content horizontally */
+    align-items: center;
+    background: #1b2a41; /* deep blue */
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d4af37; /* brushed gold */
+    letter-spacing: 2px;
+    margin-right: 3rem;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  
+  .nav-links li a:hover {
+    color: #fff;
+  }
+  
+  .appointment-link {
+    font-weight: 700;
+    border: 2px solid #d4af37;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+  }
+  
+  .logo-link {
+    color: #d4af37;          /* Brushed gold color */
+    text-decoration: none;   /* Remove underline */
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    cursor: pointer;         /* Show pointer on hover */
+  }
+  
+  .logo-link:hover {
+    color: #bfa233;          /* Slightly different gold on hover */
+    text-decoration: none;   /* Keep no underline on hover */
+  }
+
+  .book-appointment-btn {
+    background-color: #d4af37;
+    color: #2c3e50;
+    padding: 0.5rem 1.4rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.6);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .book-appointment-btn:hover {
+    background-color: #f1c40f;
+    color: #1a252f;
+    box-shadow: 0 6px 14px rgba(241, 196, 15, 0.8);
+  }
+
+  .nav {
+  background-color: #2c3e50; /* Deep blue */
+  border-bottom: 3px solid #d4af37;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.homeBtn {
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  padding: 0.4rem 1.1rem;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+  margin-right: 0.5rem;
+}
+.homeBtn:hover, .homeBtn.active {
+  background: #d4af37;
+  color: #2c3e50;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logo {
+  font-size: 2.2rem;
+  color: #d4af37;
+}
+
+.officeName {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #d4af37; /* Gold, no glow */
+  letter-spacing: 1.2px;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navLink {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+.navLink:hover {
+  color: #f1c40f;
+}
+
+.bookAppointmentBtn {
+  background-color: #d4af37;
+  color: #2c3e50;
+  padding: 0.5rem 1.4rem;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.6);
+  transition: background-color 0.3s, color 0.3s;
+}
+.bookAppointmentBtn:hover {
+  background-color: #f1c40f;
+  color: #1a252f;
+  box-shadow: 0 6px 14px rgba(241, 196, 15, 0.8);
+}
+
+  
+  
