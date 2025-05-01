@@ -166,5 +166,17 @@
   box-shadow: 0 6px 14px rgba(241, 196, 15, 0.8);
 }
 
+.logoutBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+.logoutBtn:hover {
+  text-decoration: underline;
+}
+
   
   

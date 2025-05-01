@@ -1,39 +1,43 @@
 import React, { useState } from 'react';
 import { mockEvents } from '../data/mockEvents';
-import LawyerCalendar from './LawyerCalendar';
 
-export default function LawyerDashboard({ onLogout }) {
-  const [showCalendar, setShowCalendar] = useState(false);
-  const lawyerName = "Atty. Sigma Gooner"; // Hardcoded for demo
+export default function LawyerDashboard() {
+  const lawyerName = "Atty. Juan Dela Cruz"; // Hardcoded for demo
 
-  // Filter upcoming events for this lawyer, sorted by start date/time
+  // State for selected event type filter
+  const [filterType, setFilterType] = useState('all');
+
+  // Filter upcoming events for this lawyer and by type
   const upcomingEvents = mockEvents
     .filter(event => event.lawyer === lawyerName && event.start >= new Date())
+    .filter(event => filterType === 'all' || event.type === filterType)
     .sort((a, b) => a.start - b.start);
-
-  if (showCalendar) {
-    return (
-      <LawyerCalendar
-        lawyerName={lawyerName}
-        onBack={() => setShowCalendar(false)}
-      />
-    );
-  }
 
   return (
     <div style={styles.container}>
       <header style={styles.header}>
         <h1>Welcome, {lawyerName}</h1>
-        <div>
-          <button style={styles.scheduleBtn} onClick={() => setShowCalendar(true)}>
-            Manage My Schedule
-          </button>
-          <button style={styles.logoutBtn} onClick={onLogout}>Logout</button>
-        </div>
       </header>
 
       <section>
         <h2>Upcoming Events</h2>
+
+        {/* Event type filter dropdown */}
+        <div style={styles.filterContainer}>
+          <label htmlFor="event-type" style={styles.filterLabel}>Filter by Event Type:</label>
+          <select
+            id="event-type"
+            value={filterType}
+            onChange={(e) => setFilterType(e.target.value)}
+            style={styles.select}
+          >
+            <option value="all">All</option>
+            <option value="hearing">Hearing</option>
+            <option value="consultation">Consultation</option>
+            <option value="personal">Personal</option>
+          </select>
+        </div>
+
         {upcomingEvents.length === 0 ? (
           <p>No upcoming events.</p>
         ) : (
@@ -42,7 +46,7 @@ export default function LawyerDashboard({ onLogout }) {
               <li key={event.id} style={styles.eventItem}>
                 <div style={styles.titleRow}>
                   <strong>{event.title}</strong>
-                  <span style={{...styles.badge, ...badgeColors[event.type]}}>
+                  <span style={{ ...styles.badge, ...badgeColors[event.type] }}>
                     {capitalize(event.type)}
                   </span>
                 </div>
@@ -88,30 +92,22 @@ const styles = {
     color: '#333',
   },
   header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     marginBottom: '2rem',
   },
-  logoutBtn: {
-    backgroundColor: '#4ecdc4',
-    color: 'white',
-    border: 'none',
-    padding: '0.5rem 1rem',
-    borderRadius: 6,
-    cursor: 'pointer',
-    fontWeight: '600',
-    marginLeft: 12,
+  filterContainer: {
+    marginBottom: '1rem',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
   },
-  scheduleBtn: {
-    backgroundColor: '#667eea',
-    color: 'white',
-    border: 'none',
-    padding: '0.5rem 1rem',
-    borderRadius: 6,
-    cursor: 'pointer',
+  filterLabel: {
     fontWeight: '600',
-    marginRight: 8,
+  },
+  select: {
+    padding: '0.3rem 0.6rem',
+    fontSize: '1rem',
+    borderRadius: 6,
+    border: '1px solid #ccc',
   },
   eventList: {
     listStyle: 'none',

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const tempAccounts = [
   { email: 'secretary@example.com', password: 'secret123', role: 'Secretary' },
@@ -10,6 +11,7 @@ export default function Login({ setLoggedInRole }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +23,15 @@ export default function Login({ setLoggedInRole }) {
 
     if (user) {
       setLoggedInRole(user.role);
+      localStorage.setItem('role', user.role);
+
+      if (user.role === 'Lawyer') {
+        navigate('/dashboard');
+      } else if (user.role === 'Secretary') {
+        navigate('/dashboard'); // Secretary dashboard route
+      } else {
+        navigate('/');
+      }
     } else {
       setError('Invalid email or password');
     }
